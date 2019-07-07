@@ -1,0 +1,171 @@
+;##################################################################
+;                        POLYBAR CONF FILE
+;##################################################################
+
+[colors]
+background = #ada6b7
+background-alt = #dc844b
+foreground = #393b4b
+foreground-alt = #fff  
+alert = #c45855
+
+[bar/mybar]
+width = 100%
+height = 30
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 15
+border-color = #ff
+
+padding-left = 0
+padding-right = 1
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = Monaco:pixelsize=12;3
+font-1 = fixed:fontformat=truetype:size=10:antialias=false;0
+font-2 = FontAwesome:pixelsize=14;3
+
+modules-left = i3 spotify
+modules-center = date
+modules-right = pulseaudio backlight-acpi xkeyboard eth wlan battery powermenu
+
+tray-position = 
+tray-padding = 2
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+label-layout = %layout%
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.background-alt}
+label-indicator-foreground = ${colors.foreground-alt}
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; focused = Active workspace on focused monitor
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-foreground = ${colors.foreground-alt}
+label-focused-underline = 
+label-focused-padding = 2
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = 2
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-foreground = ${self.label-focused-foreground}
+label-visible-underline = 
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index% D:
+label-urgent-background = ${colors.alert}
+label-urgent-foreground = ${colors.foreground-alt}
+label-urgent-padding = 2
+
+[module/xbacklight]
+type = internal/xbacklight
+format = <label>
+label = LUM %percentage%%
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+
+[module/wlan]
+type = internal/network
+interface = wlp59s0
+interval = 3.0
+format-connected =  <label-connected>
+label-connected = %essid%
+format-disconnected = NO WIFI
+
+[module/eth]
+type = internal/network
+interface = net0
+interval = 3.0
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground}
+label-connected = %local_ip%
+format-disconnected = NO ETH
+
+[module/date]
+type = internal/date
+interval = 1
+date =" %d/%m/%Y"
+time = %H:%M
+format-prefix = 
+format-prefix-foreground = ${colors.foreground}
+label = %date% %time%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = <label-volume>
+label-volume = VOL %percentage%%
+label-volume-foreground = ${root.foreground}
+label-muted = muted
+label-muted-foreground = #666
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+format-charging = ON AC: <label-charging>
+format-discharging = ON BAT: <label-discharging>
+format-full = FULL BAT
+
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = " "
+format = <label>
+exec = python $HOME/.config/i3/spotify_status.py -f '{artist}: {song}'
+
+[module/powermenu]
+type = custom/menu
+expand-right = true
+format-spacing = 1
+label-open = 
+label-open-foreground = ${colors.alert}
+label-close =  cancel
+label-close-foreground = ${colors.alert}
+label-separator = |
+label-separator-foreground = ${colors.foreground}
+menu-0-0 = reboot
+menu-0-0-exec = reboot
+menu-0-1 = power off
+menu-0-1-exec = shutdown now
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
