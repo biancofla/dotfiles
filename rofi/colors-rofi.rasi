@@ -26,7 +26,7 @@
     background-selected: #DC844B;
     background-urgent: #C45855;
     foreground-alt: #FFF;
-    border-color: @backgrounds;
+    border-color: @background;
     spacing: 2;
 }
 
