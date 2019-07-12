@@ -3,9 +3,9 @@
 ;##################################################################
 
 [colors]
-background = #ada6b7
+background = #393b4b
 background-alt = #dc844b
-foreground = #393b4b
+foreground = #ada6b7
 foreground-alt = #fff  
 alert = #c45855
 
@@ -29,7 +29,7 @@ padding-right = 1
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = Monaco:pixelsize=12;3
+font-0 = Monospace:pixelsize=12;3
 font-1 = fixed:fontformat=truetype:size=10:antialias=false;0
 font-2 = FontAwesome:pixelsize=14;3
 
@@ -144,9 +144,7 @@ format-full = FULL BAT
 [module/spotify]
 type = custom/script
 interval = 1
-format-prefix = " "
-format = <label>
-exec = python $HOME/.config/i3/spotify_status.py -f '{artist}: {song}'
+exec = python $HOME/.config/i3/spotify_status.py -f '{play_pause} {artist} - {song}'
 
 [module/powermenu]
 type = custom/menu

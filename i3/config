@@ -6,7 +6,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Monaco 10
+font pango:Monospace 10
 
 #colorclass                border     backgr.    text       indica.
 client.focused             #dc844b    #dc844b    #ffffff    #dc844b
@@ -152,12 +152,6 @@ bindsym $mod+r mode "resize"
 
 bindsym Print exec gnome-screenshot -i
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#        status_command i3status
-#}
-
 # Trackpad speed
 exec_always "xinput set-prop 'SYNA2393:00 06CB:7A13 Touchpad' 'libinput Accel Speed' 0.4"
 # Tapping enabled
@@ -177,8 +171,7 @@ bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN
 bindsym XF86MonBrightnessUp exec brightlight -p -i 1
 bindsym XF86MonBrightnessDown exec brightlight -p -d 1
 
-for_window [class="^.*"] border pixel 1
-#for_window [class="..."] floating enable
+for_window [class="^.*"] border pixel 2
 
 gaps inner 12
 gaps outer 3

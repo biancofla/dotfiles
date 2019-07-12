@@ -21,18 +21,19 @@
     selected-urgent-foreground: @foreground-alt;
 
     background-color: @background;
-    background: #ADA6B7;
-    foreground: #393B4B;
+    background: #393B4B;
+    foreground: #ADA6B7;
     background-selected: #DC844B;
     background-urgent: #C45855;
     foreground-alt: #FFF;
-    border-color: @background;
+    border-color: @backgrounds;
     spacing: 2;
 }
 
 #window {
     background-color: @background;
-    border: 0;
+    border-color: @background-selected;
+    border: 2;
     padding: 1ch;
 }
 
