@@ -11,6 +11,8 @@ vim.o.tabstop = 4
 vim.o.expandtab = true
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
+-- Highlight cursor line.
+vim.opt.cursorline = true
 -- Copy/Paste between editor and other applications.
 vim.opt.clipboard = "unnamed,unnamedplus"
 -- Undo.
