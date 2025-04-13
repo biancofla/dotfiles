@@ -42,3 +42,6 @@ vim.keymap.set("n", "<leader>ff", builtin.find_files)
 -- Live grep.
 vim.keymap.set("n", "<leader>lg", builtin.live_grep)
 
+-- GRUG FAR
+
+vim.keymap.set("n", ",f", "<Cmd>GrugFar<CR>")
