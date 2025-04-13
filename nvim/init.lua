@@ -21,8 +21,9 @@ vim.keymap.set("n", "U", "<Cmd>redo<CR>")
 vim.keymap.set("n", "<leader>w", "<c-w>w")
 -- Disable macro recording.
 vim.keymap.set("n", "q", "<Nop>")
--- Disable '#' quick search.
+-- Disable '#' and '*' quick search.
 vim.keymap.set("n", "#", "<Nop>")
+vim.keymap.set("n", "*", "<Nop>")
 
 -- NEOTREE
 
@@ -48,4 +49,5 @@ vim.keymap.set("n", "<leader>lg", builtin.live_grep)
 
 -- GRUG FAR
 
+-- Find and replace.
 vim.keymap.set("n", ",f", "<Cmd>GrugFar<CR>")
