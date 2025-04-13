@@ -11,6 +11,8 @@ vim.o.tabstop = 4
 vim.o.expandtab = true
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
+-- Copy/Paste between editor and other applications.
+vim.opt.clipboard = "unnamed,unnamedplus"
 -- Undo.
 vim.keymap.set("n", "U", "<Cmd>redo<CR>")
 -- Move to next focusable window.
