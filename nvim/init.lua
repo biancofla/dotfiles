@@ -14,9 +14,11 @@ vim.o.shiftwidth = 4
 -- Undo.
 vim.keymap.set("n", "U", "<Cmd>redo<CR>")
 -- Move to next focusable window.
-vim.keymap.set("n", "<leader>f", "<c-w>w")
+vim.keymap.set("n", "<leader>w", "<c-w>w")
 -- Disable macro recording.
 vim.keymap.set("n", "q", "<Nop>")
+-- Disable '#' quick search.
+vim.keymap.set("n", "#", "<Nop>")
 
 -- NEOTREE
 
@@ -38,5 +40,5 @@ local builtin = require("telescope.builtin")
 -- Find files.
 vim.keymap.set("n", "<leader>ff", builtin.find_files)
 -- Live grep.
-vim.keymap.set("n", "<leader>fg", builtin.live_grep)
+vim.keymap.set("n", "<leader>lg", builtin.live_grep)
 
