@@ -30,7 +30,47 @@ return {
             lspconfig.pyright.setup({})
             lspconfig.ruff.setup({})
             lspconfig.eslint.setup({})
-            lspconfig.rust_analyzer.setup({})
+            lspconfig.rust_analyzer.setup({
+                settings = {
+                    ["rust-analyzer"] = {
+                        inlayHints = {
+                            chainingHints = true,
+                            parameterHints = true,
+                            typeHints = {
+                                enable = true,
+                                hideClosureInitialization = false
+                            },
+                            closureReturnTypeHints = {
+                                enable = "always"
+                            },
+                            lifetimeElisionHints = {
+                                enable = "always",
+                                useParameterNames = true
+                            },
+                            reborrowHints = {
+                                enable = "never"
+                            },
+                            bindingModeHints = {
+                                enable = true
+                            },
+                            renderColons = true
+                        }
+                    }
+                },
+                on_attach = function(client, bufnr)
+                    if client.server_capabilities.inlayHintProvider then
+                        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+
+                        vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter", "CursorHold" }, {
+                            buffer = bufnr,
+                            callback = function()
+                                vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+                            end,
+                        })
+                    end
+                end
+            })
+
         end
     }
 }
