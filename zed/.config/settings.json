@@ -59,7 +59,7 @@
   },
   "languages": {
     "Python": {
-      "language_servers": ["pylsp", "ruff"],
+      "language_servers": ["pyright", "ruff"],
       "format_on_save": "on",
       "formatter": [
         {
@@ -77,6 +77,17 @@
     }
   },
   "lsp": {
+    "pyright": {
+      "settings": {
+        "python": {
+          "pythonPath": ".venv/bin/python"
+        },
+        "analysis": {
+          "diagnosticMode": "off",
+          "typeCheckingMode": "off"
+        }
+      }
+    },
     "ruff": {
       "initialization_options": {
         "settings": {
